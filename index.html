@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Green(er)Life | فروشگاه محصولات گیاهی</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7f5;
+            color: #222;
+        }
+
+        header {
+            background: #123d28;
+            color: white;
+            padding: 22px 18px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        nav {
+            background: white;
+            padding: 14px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        nav a {
+            color: #123d28;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .hero {
+            padding: 35px 20px;
+            text-align: center;
+            background: #e8f1ea;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            margin-bottom: 12px;
+            color: #123d28;
+        }
+
+        .hero p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #123d28;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .products {
+            padding: 30px 18px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .products h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #123d28;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 15px;
+            padding: 18px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .product-image {
+            height: 180px;
+            background: #eef2ee;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: #777;
+        }
+
+        .product h3 {
+            margin-bottom: 10px;
+        }
+
+        .product p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #123d28;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #123d28;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 7px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Green(er)Life</h1>
+    <p>فروشگاه محصولات گیاهی</p>
+</header>
+
+<nav>
+    <a href="#home">خانه</a>
+    <a href="#products">محصولات</a>
+    <a href="#contact">تماس با ما</a>
+</nav>
+
+<section class="hero" id="home">
+    <h2>محصولات گیاهی منتخب</h2>
+    <p>
+        مجموعه‌ای از محصولات گیاهی و مکمل‌های مرتبط با سلامت و
+        افزایش قوای جنسی مردان.
+    </p>
+
+    <a class="button" href="#products">مشاهده محصولات</a>
+</section>
+
+<section class="products" id="products">
+
+    <h2>محصولات فروشگاه</h2>
+
+    <div class="product-grid">
+
+        <div class="product">
+            <div class="product-image">
+                تصویر محصول
+            </div>
+
+            <h3>محصول شماره ۱</h3>
+
+            <p>
+                توضیحات محصول را اینجا قرار می‌دهیم.
+            </p>
+
+            <div class="price">
+                قیمت: به‌زودی
+            </div>
+
+            <a class="button" href="#contact">
+                سفارش
+            </a>
+        </div>
+
+        <div class="product">
+            <div class="product-image">
+                تصویر محصول
+            </div>
+
+            <h3>محصول شماره ۲</h3>
+
+            <p>
+                توضیحات محصول را اینجا قرار می‌دهیم.
+            </p>
+
+            <div class="price">
+                قیمت: به‌زودی
+            </div>
+
+            <a class="button" href="#contact">
+                سفارش
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<footer id="contact">
+    <h3>Green(er)Life</h3>
+    <p>برای اطلاعات و سفارش با ما در ارتباط باشید.</p>
+    <p>تماس و پشتیبانی: به‌زودی</p>
+</footer>
+
+</body>
+  </html>
