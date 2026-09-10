@@ -1,228 +1,1137 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Green(er)Life | فروشگاه محصولات گیاهی</title>
+  <title>greenerlife | فروشگاه</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f7f5;
-            color: #222;
-        }
+    :root {
+      --green: #8bcf72;
+      --green-dark: #477d3c;
+      --gold: #c9a44c;
+      --cream: #fbfaf5;
+      --white: #ffffff;
+      --text: #243024;
+      --gray: #777;
+    }
 
-        header {
-            background: #123d28;
-            color: white;
-            padding: 22px 18px;
-            text-align: center;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        header h1 {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background:
+        linear-gradient(rgba(255,255,255,.88), rgba(255,255,255,.94)),
+        url("background.jpg") center/cover fixed;
+      color: var(--text);
+      min-height: 100vh;
+    }
 
-        header p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        nav {
-            background: white;
-            padding: 14px;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
 
-        nav a {
-            color: #123d28;
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: bold;
-        }
+    /* HEADER */
 
-        .hero {
-            padding: 35px 20px;
-            text-align: center;
-            background: #e8f1ea;
-        }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(201,164,76,.25);
+    }
 
-        .hero h2 {
-            font-size: 25px;
-            margin-bottom: 12px;
-            color: #123d28;
-        }
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+      padding: 15px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
 
-        .hero p {
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--green-dark);
+    }
 
-        .button {
-            display: inline-block;
-            background: #123d28;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green), #b7e69e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 5px 18px rgba(95,150,75,.2);
+    }
 
-        .products {
-            padding: 30px 18px;
-            max-width: 1000px;
-            margin: auto;
-        }
+    .cart-button {
+      position: relative;
+      border: 1px solid #e6d6a7;
+      background: white;
+      border-radius: 14px;
+      padding: 10px 14px;
+      font-size: 20px;
+    }
 
-        .products h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            color: #123d28;
-        }
+    .cart-count {
+      position: absolute;
+      top: -7px;
+      left: -7px;
+      width: 21px;
+      height: 21px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: white;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 18px;
-        }
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 15px 13px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
 
-        .product {
-            background: white;
-            border-radius: 15px;
-            padding: 18px;
-            text-align: center;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-        }
+    nav::-webkit-scrollbar {
+      display: none;
+    }
 
-        .product-image {
-            height: 180px;
-            background: #eef2ee;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-            color: #777;
-        }
+    nav a {
+      white-space: nowrap;
+      padding: 9px 13px;
+      border-radius: 10px;
+      font-size: 13px;
+      color: #555;
+    }
 
-        .product h3 {
-            margin-bottom: 10px;
-        }
+    nav a:hover {
+      background: #eff9e9;
+      color: var(--green-dark);
+    }
 
-        .product p {
-            font-size: 14px;
-            line-height: 1.7;
-            color: #666;
-            margin-bottom: 15px;
-        }
+    /* HERO */
 
-        .price {
-            font-weight: bold;
-            color: #123d28;
-            margin-bottom: 15px;
-        }
+    .hero {
+      max-width: 1100px;
+      margin: 25px auto;
+      padding: 55px 25px;
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(139,207,114,.88), rgba(255,255,255,.9));
+      box-shadow: 0 20px 50px rgba(70,100,60,.12);
+      text-align: center;
+      overflow: hidden;
+    }
 
-        footer {
-            background: #123d28;
-            color: white;
-            text-align: center;
-            padding: 25px 15px;
-            margin-top: 30px;
-        }
+    .hero small {
+      color: var(--gold);
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
 
-        footer p {
-            margin: 7px;
-            font-size: 14px;
-        }
-    </style>
+    .hero h1 {
+      font-size: 38px;
+      margin: 13px 0;
+      color: #31572d;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      line-height: 2;
+      color: #456044;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 13px 24px;
+      border-radius: 14px;
+      background: var(--green-dark);
+      color: white;
+      box-shadow: 0 10px 25px rgba(50,100,45,.2);
+      transition: .25s;
+    }
+
+    .hero-button:hover {
+      transform: translateY(-3px);
+    }
+
+    /* SECTIONS */
+
+    section {
+      max-width: 1100px;
+      margin: 55px auto;
+      padding: 0 18px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .section-title h2 {
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: var(--gray);
+      font-size: 13px;
+    }
+
+    /* SEARCH */
+
+    .search-box {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .search-box input {
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 14px;
+      padding: 14px;
+      outline: none;
+      background: white;
+      font-family: inherit;
+    }
+
+    .search-box input:focus {
+      border-color: var(--green);
+    }
+
+    /* CATEGORIES */
+
+    .categories {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scrollbar-width: none;
+    }
+
+    .categories::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category {
+      white-space: nowrap;
+      border: 1px solid #dcebd5;
+      background: white;
+      padding: 10px 15px;
+      border-radius: 12px;
+      color: #52714a;
+    }
+
+    .category.active,
+    .category:hover {
+      background: var(--green);
+      color: white;
+      border-color: var(--green);
+    }
+
+    /* PRODUCTS */
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .product {
+      background: rgba(255,255,255,.95);
+      border: 1px solid #edf0e9;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(40,60,30,.07);
+      transition: .3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(40,60,30,.12);
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      background: #f4f4ed;
+    }
+
+    .product-info {
+      padding: 13px;
+    }
+
+    .product-info h3 {
+      font-size: 15px;
+      margin-bottom: 7px;
+    }
+
+    .product-info p {
+      color: var(--gray);
+      font-size: 11px;
+      line-height: 1.8;
+      min-height: 38px;
+    }
+
+    .price {
+      margin: 10px 0;
+      color: var(--green-dark);
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .add-button {
+      width: 100%;
+      border: 0;
+      border-radius: 12px;
+      padding: 11px;
+      background: var(--green-dark);
+      color: white;
+      transition: .2s;
+    }
+
+    .add-button:hover {
+      background: #35622f;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      background: rgba(255,255,255,.9);
+      border: 1px solid #eee;
+      border-radius: 25px;
+      padding: 28px;
+      text-align: center;
+    }
+
+    .contact a {
+      display: block;
+      margin-top: 12px;
+      color: var(--green-dark);
+      font-weight: bold;
+    }
+
+    /* ABOUT */
+
+    .about {
+      text-align: center;
+      max-width: 750px;
+      margin: 70px auto 25px;
+      padding: 0 20px;
+    }
+
+    .about h3 {
+      color: var(--green-dark);
+      margin-bottom: 12px;
+    }
+
+    .about p {
+      color: #777;
+      font-size: 12px;
+      line-height: 2.2;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #888;
+      font-size: 11px;
+    }
+
+    /* CART */
+
+    .cart-panel {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 2000;
+      display: none;
+    }
+
+    .cart-panel.open {
+      display: block;
+    }
+
+    .cart {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: min(420px, 94%);
+      height: 100%;
+      background: white;
+      padding: 20px;
+      overflow-y: auto;
+      animation: slideIn .3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .close-cart {
+      border: 0;
+      background: #f2f2f2;
+      border-radius: 10px;
+      padding: 7px 11px;
+      font-size: 18px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .cart-item img {
+      width: 65px;
+      height: 65px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-info h4 {
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+
+    .quantity {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .quantity button {
+      width: 27px;
+      height: 27px;
+      border: 0;
+      border-radius: 8px;
+      background: #edf7e9;
+      color: var(--green-dark);
+      font-weight: bold;
+    }
+
+    .cart-total {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 15px;
+      background: #f7faf3;
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+    }
+
+    .order-button {
+      width: 100%;
+      border: 0;
+      background: var(--gold);
+      color: white;
+      padding: 14px;
+      border-radius: 13px;
+      margin-top: 12px;
+      font-size: 15px;
+    }
+
+    .empty {
+      text-align: center;
+      color: #888;
+      padding: 50px 10px;
+    }
+
+    /* DESKTOP */
+
+    @media (min-width: 700px) {
+      .products {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+
+      .hero {
+        margin: 35px auto;
+      }
+
+      .hero h1 {
+        font-size: 50px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-    <h1>Green(er)Life</h1>
-    <p>فروشگاه محصولات گیاهی</p>
-</header>
+  <div class="header-inner">
 
-<nav>
+    <a href="#" class="logo">
+      <span class="logo-mark">🌿</span>
+      greenerlife
+    </a>
+
+    <button class="cart-button" onclick="openCart()">
+      🛒
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+  </div>
+
+  <nav>
     <a href="#home">خانه</a>
     <a href="#products">محصولات</a>
+    <a href="#search">جستجوی محصولات</a>
+    <a href="#categories">دسته‌بندی‌ها</a>
+    <a href="#" onclick="openCart()">سبد خرید</a>
     <a href="#contact">تماس با ما</a>
-</nav>
+  </nav>
+</header>
 
-<section class="hero" id="home">
-    <h2>محصولات گیاهی منتخب</h2>
+
+<main>
+
+  <section class="hero" id="home">
+
+    <small>GREENERLIFE</small>
+
+    <h1>انتخابی متفاوت</h1>
+
     <p>
-        مجموعه‌ای از محصولات گیاهی و مکمل‌های مرتبط با سلامت و
-        افزایش قوای جنسی مردان.
+      مجموعه‌ای از محصولات منتخب با تجربه‌ای ساده،
+      مدرن و حرفه‌ای برای خرید آنلاین.
     </p>
 
-    <a class="button" href="#products">مشاهده محصولات</a>
-</section>
+    <a href="#products" class="hero-button">
+      مشاهده محصولات
+    </a>
 
-<section class="products" id="products">
+  </section>
 
-    <h2>محصولات فروشگاه</h2>
 
-    <div class="product-grid">
+  <section id="search">
 
-        <div class="product">
-            <div class="product-image">
-                تصویر محصول
-            </div>
+    <div class="section-title">
+      <h2>جستجوی محصولات</h2>
+      <p>محصول موردنظرت را پیدا کن</p>
+    </div>
 
-            <h3>محصول شماره ۱</h3>
+    <div class="search-box">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="نام محصول را جستجو کنید..."
+        oninput="searchProducts()"
+      >
+    </div>
 
-            <p>
-                توضیحات محصول را اینجا قرار می‌دهیم.
-            </p>
+  </section>
 
-            <div class="price">
-                قیمت: به‌زودی
-            </div>
 
-            <a class="button" href="#contact">
-                سفارش
-            </a>
-        </div>
+  <section id="categories">
 
-        <div class="product">
-            <div class="product-image">
-                تصویر محصول
-            </div>
+    <div class="section-title">
+      <h2>دسته‌بندی‌ها</h2>
+      <p>انتخاب سریع محصولات</p>
+    </div>
 
-            <h3>محصول شماره ۲</h3>
+    <div class="categories">
 
-            <p>
-                توضیحات محصول را اینجا قرار می‌دهیم.
-            </p>
+      <button class="category active" onclick="filterCategory('all', this)">
+        همه
+      </button>
 
-            <div class="price">
-                قیمت: به‌زودی
-            </div>
+      <button class="category" onclick="filterCategory('category1', this)">
+        دسته اول
+      </button>
 
-            <a class="button" href="#contact">
-                سفارش
-            </a>
-        </div>
+      <button class="category" onclick="filterCategory('category2', this)">
+        دسته دوم
+      </button>
+
+      <button class="category" onclick="filterCategory('category3', this)">
+        دسته سوم
+      </button>
 
     </div>
-</section>
 
-<footer id="contact">
-    <h3>Green(er)Life</h3>
-    <p>برای اطلاعات و سفارش با ما در ارتباط باشید.</p>
-    <p>تماس و پشتیبانی: به‌زودی</p>
+  </section>
+
+
+  <section id="products">
+
+    <div class="section-title">
+      <h2>محصولات فروشگاه</h2>
+      <p>محصولات greenerlife</p>
+    </div>
+
+    <div class="products" id="productList">
+
+      <!-- محصول 1 -->
+
+      <article
+        class="product"
+        data-category="category1"
+        data-name="محصول شماره یک"
+      >
+
+        <img
+          class="product-image"
+          src="product1.jpg"
+          alt="محصول شماره یک"
+        >
+
+        <div class="product-info">
+
+          <h3>محصول شماره یک</h3>
+
+          <p>
+            توضیحات محصول را اینجا وارد می‌کنیم.
+          </p>
+
+          <div class="price">
+            ۰ تومان
+          </div>
+
+          <button
+            class="add-button"
+            onclick="addToCart(1)"
+          >
+            افزودن به سبد خرید
+          </button>
+
+        </div>
+
+      </article>
+
+
+      <!-- محصول 2 -->
+
+      <article
+        class="product"
+        data-category="category2"
+        data-name="محصول شماره دو"
+      >
+
+        <img
+          class="product-image"
+          src="product2.jpg"
+          alt="محصول شماره دو"
+        >
+
+        <div class="product-info">
+
+          <h3>محصول شماره دو</h3>
+
+          <p>
+            توضیحات محصول را اینجا وارد می‌کنیم.
+          </p>
+
+          <div class="price">
+            ۰ تومان
+          </div>
+
+          <button
+            class="add-button"
+            onclick="addToCart(2)"
+          >
+            افزودن به سبد خرید
+          </button>
+
+        </div>
+
+      </article>
+
+
+      <!-- محصول 3 -->
+
+      <article
+        class="product"
+        data-category="category3"
+        data-name="محصول شماره سه"
+      >
+
+        <img
+          class="product-image"
+          src="product3.jpg"
+          alt="محصول شماره سه"
+        >
+
+        <div class="product-info">
+
+          <h3>محصول شماره سه</h3>
+
+          <p>
+            توضیحات محصول را اینجا وارد می‌کنیم.
+          </p>
+
+          <div class="price">
+            ۰ تومان
+          </div>
+
+          <button
+            class="add-button"
+            onclick="addToCart(3)"
+          >
+            افزودن به سبد خرید
+          </button>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <section id="contact">
+
+    <div class="section-title">
+      <h2>تماس با ما</h2>
+      <p>برای اطلاعات و سفارش با ما در ارتباط باشید.</p>
+    </div>
+
+    <div class="contact">
+
+      <p>📞 شماره تماس</p>
+
+      <a href="tel:09902978707">
+        09902978707
+      </a>
+
+      <p style="margin-top:20px;">
+        📷 اینستاگرام
+      </p>
+
+      <a
+        href="https://www.instagram.com/greenerlife"
+        target="_blank"
+      >
+        @greenerlife
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <div class="about">
+
+    <h3>درباره greenerlife</h3>
+
+    <p>
+      greenerlife یک صفحه و فروشگاه آنلاین برای معرفی
+      و ارائه محصولات منتخب است. هدف ما ایجاد تجربه‌ای
+      ساده، زیبا و قابل اعتماد برای مشاهده محصولات،
+      دریافت اطلاعات و ثبت سفارش است.
+    </p>
+
+  </div>
+
+</main>
+
+
+<footer>
+  © 2026 greenerlife — تمامی حقوق محفوظ است.
 </footer>
 
+
+<!-- CART -->
+
+<div class="cart-panel" id="cartPanel" onclick="closeCartOutside(event)">
+
+  <div class="cart">
+
+    <div class="cart-header">
+
+      <h2>سبد خرید</h2>
+
+      <button
+        class="close-cart"
+        onclick="closeCart()"
+      >
+        ✕
+      </button>
+
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div id="cartBottom"></div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+  const products = {
+
+    1: {
+      name: "محصول شماره یک",
+      price: 0,
+      image: "product1.jpg"
+    },
+
+    2: {
+      name: "محصول شماره دو",
+      price: 0,
+      image: "product2.jpg"
+    },
+
+    3: {
+      name: "محصول شماره سه",
+      price: 0,
+      image: "product3.jpg"
+    }
+
+  };
+
+
+  let cart = JSON.parse(
+    localStorage.getItem("greenerlifeCart")
+  ) || {};
+
+
+  function saveCart() {
+
+    localStorage.setItem(
+      "greenerlifeCart",
+      JSON.stringify(cart)
+    );
+
+  }
+
+
+  function addToCart(id) {
+
+    if (!cart[id]) {
+      cart[id] = 1;
+    } else {
+      cart[id]++;
+    }
+
+    saveCart();
+    updateCart();
+
+    openCart();
+
+  }
+
+
+  function changeQuantity(id, amount) {
+
+    cart[id] += amount;
+
+    if (cart[id] <= 0) {
+      delete cart[id];
+    }
+
+    saveCart();
+    updateCart();
+
+  }
+
+
+  function updateCart() {
+
+    let totalItems = 0;
+
+    for (const id in cart) {
+      totalItems += cart[id];
+    }
+
+    document.getElementById("cartCount").textContent =
+      totalItems;
+
+
+    const container =
+      document.getElementById("cartItems");
+
+    const bottom =
+      document.getElementById("cartBottom");
+
+
+    if (Object.keys(cart).length === 0) {
+
+      container.innerHTML =
+        '<div class="empty">سبد خرید شما خالی است 🛒</div>';
+
+      bottom.innerHTML = "";
+
+      return;
+
+    }
+
+
+    let html = "";
+    let total = 0;
+
+
+    for (const id in cart) {
+
+      const product = products[id];
+      const quantity = cart[id];
+
+      total += product.price * quantity;
+
+
+      html += `
+
+        <div class="cart-item">
+
+          <img
+            src="${product.image}"
+            alt="${product.name}"
+          >
+
+          <div class="cart-item-info">
+
+            <h4>${product.name}</h4>
+
+            <div class="quantity">
+
+              <button
+                onclick="changeQuantity(${id}, -1)"
+              >
+                −
+              </button>
+
+              <span>${quantity}</span>
+
+              <button
+                onclick="changeQuantity(${id}, 1)"
+              >
+                +
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }
+
+
+    container.innerHTML = html;
+
+
+    bottom.innerHTML = `
+
+      <div class="cart-total">
+
+        <span>مجموع</span>
+
+        <span>${formatPrice(total)} تومان</span>
+
+      </div>
+
+      <button
+        class="order-button"
+        onclick="order()"
+      >
+        ثبت سفارش
+      </button>
+
+    `;
+
+  }
+
+
+  function formatPrice(price) {
+
+    return price.toLocaleString("fa-IR");
+
+  }
+
+
+  function openCart() {
+
+    document
+      .getElementById("cartPanel")
+      .classList.add("open");
+
+    updateCart();
+
+  }
+
+
+  function closeCart() {
+
+    document
+      .getElementById("cartPanel")
+      .classList.remove("open");
+
+  }
+
+
+  function closeCartOutside(event) {
+
+    if (
+      event.target.id === "cartPanel"
+    ) {
+      closeCart();
+    }
+
+  }
+
+
+  function searchProducts() {
+
+    const search =
+      document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    const items =
+      document.querySelectorAll(".product");
+
+
+    items.forEach(item => {
+
+      const name =
+        item.dataset.name.toLowerCase();
+
+      if (name.includes(search)) {
+        item.style.display = "";
+      } else {
+        item.style.display = "none";
+      }
+
+    });
+
+  }
+
+
+  function filterCategory(category, button) {
+
+    document
+      .querySelectorAll(".category")
+      .forEach(btn =>
+        btn.classList.remove("active")
+      );
+
+    button.classList.add("active");
+
+
+    document
+      .querySelectorAll(".product")
+      .forEach(product => {
+
+        if (
+          category === "all" ||
+          product.dataset.category === category
+        ) {
+          product.style.display = "";
+        } else {
+          product.style.display = "none";
+        }
+
+      });
+
+  }
+
+
+  function order() {
+
+    if (
+      Object.keys(cart).length === 0
+    ) {
+      alert("سبد خرید خالی است.");
+      return;
+    }
+
+
+    let message =
+      "سلام، برای ثبت سفارش از سایت greenerlife پیام می‌دهم:%0A%0A";
+
+
+    for (const id in cart) {
+
+      message +=
+        products[id].name +
+        " × " +
+        cart[id] +
+        "%0A";
+
+    }
+
+
+    const phone =
+      "989902978707";
+
+
+    window.open(
+      "https://wa.me/" +
+      phone +
+      "?text=" +
+      message,
+      "_blank"
+    );
+
+  }
+
+
+  updateCart();
+
+</script>
+
 </body>
-  </html>
+    </html>
